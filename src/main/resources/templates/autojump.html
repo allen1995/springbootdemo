@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.min.js" ></script>
+</head>
+<body>
+    <h1>测试页面</h1>
+</body>
+
+</html>
+<script type="application/javascript">
+
+
+$(function(){
+        // var openTime = + new Date();
+        // window.location.href = 'taobao://item.taobao.com/item.htm?id=1';
+
+    // var limit_num = 100;
+    // var openTime = +new Date();
+    // window.location.href = 'taobao://item.taobao.com/item.htm?id=1'
+    // var timer = setInterval(function () {
+    //     if(limit_num > 0){
+    //         limit_num--;
+    //         $("h1").html(limit_num)
+    //     }else{
+    //         if ((new Date()) - openTime < 2200) {//加了200ms基准误差
+    //             // window.location.href = 'you app download page';
+    //             alert("跳转到app商店");
+    //         }
+    //         clearTimeout(timer);
+    //     }
+    // }, 1000);
+
+    openByScheme("taobao://item.taobao.com/item.htm?id=1");
+
+});
+
+function openByScheme(wakeupUrl) {
+    var ifm = document.createElement('iframe');
+
+    ifm.setAttribute('src', wakeupUrl);
+    ifm.setAttribute('style', 'display:none');
+    document.body.appendChild(ifm);
+    // onBeforeWakeup && onBeforeWakeup();
+
+    var currentTime = Date.now();
+
+    setTimeout(function() {
+        var nowTime = Date.now();
+        if (nowTime - currentTime < 2100) {
+            alert("跳转到app商店")
+        }
+    }, 2000);
+}
+
+</script>
+
